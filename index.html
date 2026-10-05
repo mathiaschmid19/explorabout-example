@@ -1,5 +1,6 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Guest Experience Demo</title>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;background:#F3F5FA}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<title>Explorabout + Una Demo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Carlito:wght@400;700&display=swap">
@@ -58,7 +59,7 @@
   .live-pill i{width:7px;height:7px;border-radius:50%;background:var(--orange);display:block;animation:pulse 1.8s ease-in-out infinite;}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
-  .modes{display:grid;grid-template-columns:repeat(3,1fr);margin-top:10px;}
+  .modes{display:grid;grid-template-columns:repeat(2,1fr);margin-top:10px;}
   .mode{
     background:none;border:none;cursor:pointer;
     padding:10px 4px 11px;
@@ -189,6 +190,24 @@
   }
   .una-launch .av{width:34px;height:34px;border-radius:50%;background:#fff;color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;}
   .una-launch[hidden]{display:none!important;}
+  .una-teaser{
+    position:fixed;z-index:25;
+    right:max(16px, calc(50% - 240px + 16px));
+    bottom:calc(76px + env(safe-area-inset-bottom,0px));
+    width:250px;max-width:calc(100% - 32px);
+    background:var(--white);border-radius:16px 16px 4px 16px;
+    box-shadow:0 2px 4px rgba(15,27,61,.08),0 14px 34px rgba(15,27,61,.18);
+    animation:rise .3s ease both;
+  }
+  .una-teaser[hidden]{display:none!important;}
+  .tz-body{display:block;width:100%;text-align:left;border:none;background:none;cursor:pointer;padding:12px 30px 12px 14px;font-size:14.5px;line-height:1.35;color:var(--ink);}
+  .tz-body b{display:block;font-family:var(--head);font-size:14px;color:var(--blue);margin-bottom:2px;}
+  .tz-x{position:absolute;right:6px;top:6px;width:24px;height:24px;border-radius:50%;border:none;background:var(--bg);color:var(--muted);cursor:pointer;font-size:16px;line-height:1;}
+  .una-cta{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;margin:16px 16px 0;padding:14px;border-radius:16px;background:var(--blue-50);border:1px solid var(--blue-100);}
+  .una-cta-av{width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--head);font-weight:700;font-size:19px;}
+  .una-cta-txt .t{font-family:var(--head);font-weight:600;font-size:15px;line-height:1.25;color:var(--ink);}
+  .una-cta-txt .s{font-size:14px;color:var(--muted);margin-top:2px;}
+  .una-cta-btn{grid-column:1 / -1;border:none;border-radius:12px;background:var(--blue);color:#fff;font-family:var(--head);font-weight:600;font-size:15px;padding:12px;cursor:pointer;}
 
   /* ===== sheets ===== */
   .scrim{position:fixed;inset:0;background:rgba(10,18,40,.45);z-index:40;opacity:0;pointer-events:none;transition:opacity .2s;}
@@ -462,13 +481,12 @@
 <div class="app" id="app">
   <header class="appbar">
     <div class="appbar-row">
-      <div class="wordmark">Guest experience demo</div>
+      <div class="wordmark">Explorabout + Una demo</div>
       <div class="live-pill"><i></i>Live demo</div>
     </div>
     <nav class="modes" role="tablist">
       <button class="mode on" data-view="guest" role="tab">Guest site</button>
       <button class="mode" data-view="report" role="tab">Monthly report</button>
-      <button class="mode" data-view="una" role="tab">Una dashboard<span class="dot" id="una-dot" hidden></span></button>
     </nav>
   </header>
 
@@ -476,7 +494,7 @@
   <section class="view on" id="view-guest">
     <div class="context">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20"/></svg>
-      What guests see on the rental company's own website
+      What guests see on the rental company's website. Una by Polydom is live on this page: tap the Una button to talk or type.
     </div>
 
     <div class="site-nav">
@@ -555,75 +573,6 @@
     <p class="note">Sample figures for demonstration.</p>
   </section>
 
-  <!-- ================= UNA DASHBOARD ================= -->
-  <section class="view" id="view-una">
-    <div class="context">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      The rental company's own Una dashboard
-    </div>
-    <div class="admin-top">
-      <div class="una-id">
-        <div class="una-av">U</div>
-        <div>
-          <h2>Una dashboard</h2>
-          <div class="s">Your company &middot; <span class="on-txt"><i></i>Live on your site</span></div>
-        </div>
-      </div>
-      <div class="ustats">
-        <div><b id="u-conv">96</b><span>Conversations</span></div>
-        <div><b id="u-leads">31</b><span>Leads captured</span></div>
-        <div><b>58%</b><span>After hours</span></div>
-      </div>
-    </div>
-
-    <div class="seg seg3" role="tablist">
-      <button class="on" data-pane="leads">Leads <span class="count" id="c-leads">3</span></button>
-      <button data-pane="chats">Chats</button>
-      <button data-pane="settings">Settings</button>
-    </div>
-
-    <div id="pane-leads">
-      <div class="hint">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#143FE7" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
-        <span>Every request Una collects arrives here with the details, and your team gets an email alert.</span>
-      </div>
-      <div class="req-list" id="lead-list"></div>
-    </div>
-
-    <div id="pane-chats" hidden>
-      <div class="hint">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#143FE7" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
-        <span>Read any conversation Una had with a guest. Tap one to open it.</span>
-      </div>
-      <div class="chat-list" id="chat-list"></div>
-    </div>
-
-    <div id="pane-settings" hidden>
-      <div class="settings">
-        <div class="set-group">
-          <div class="set-label">Welcome message</div>
-          <div class="set-box">Hi, I'm Una, the concierge for your stay. What sounds good for your trip?</div>
-        </div>
-        <div class="set-group">
-          <div class="set-label">Send new leads to</div>
-          <div class="set-box mono">reservations@yourcompany.com</div>
-        </div>
-        <div class="set-group">
-          <div class="set-label">Una can help guests with</div>
-          <div class="set-rows" id="set-rows"></div>
-        </div>
-        <div class="set-group">
-          <div class="set-label">Where Una appears</div>
-          <div class="pill-row"><span class="pill on">Website</span><span class="pill">Guest messages</span><span class="pill">Text</span></div>
-        </div>
-      </div>
-    </div>
-    <p class="note">Sample data for demonstration.</p>
-  </section>
-
-  <button class="una-launch" id="una-launch" aria-label="Chat with Una">
-    <span class="av">U</span>Ask Una
-  </button>
 </div>
 
 <div class="scrim" id="scrim"></div>
@@ -706,8 +655,6 @@
   function show(view){
     document.querySelectorAll(".mode").forEach(function(b){ b.classList.toggle("on", b.dataset.view===view); });
     document.querySelectorAll(".view").forEach(function(v){ v.classList.toggle("on", v.id==="view-"+view); });
-    $("una-launch").hidden = view !== "guest";
-    if(view==="una"){ $("una-dot").hidden = true; }
     window.scrollTo(0,0);
   }
   document.querySelectorAll(".mode").forEach(function(b){
@@ -813,88 +760,6 @@
       '<button class="cta blue" data-close style="margin-top:8px">Back to experiences</button></div>';
   }
 
-  /* ---------- Una dashboard: leads ---------- */
-  var ST = {"new":["new","New"], prog:["prog","Contacted"], ok:["ok","Done"]};
-  function renderLeads(){
-    $("c-leads").textContent = LEADS.length;
-    $("c-leads").classList.toggle("hot", LEADS.some(function(r){ return r.status==="new"; }));
-    $("lead-list").innerHTML = LEADS.map(function(r, i){
-      var st = ST[r.status], thumb, title, type;
-      if(r.xp){ thumb = '<img src="'+IMG[r.xp]+'" alt="">'; title = byId(r.xp).title; type = '<span class="lead-type xp">Experience request</span>'; }
-      else { thumb = '<div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5B32B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></div>'; title = r.title; type = '<span class="lead-type stay">Rental inquiry</span>'; }
-      var act = r.status==="ok" ? "" :
-        '<div class="act"><button data-chat="'+r.chat+'">View chat</button><button class="pri" data-lead="'+i+'">'+(r.status==="new"?"Mark contacted":"Mark done")+'</button></div>';
-      return '<div class="req'+(r.fresh?' fresh':'')+'">'+thumb +
-        '<div>'+type+'<div class="top"><div class="t">'+esc(title)+'</div><span class="status '+st[0]+'">'+st[1]+'</span></div>' +
-        '<div class="s">'+esc(r.detail)+'</div>' +
-        '<div class="src">'+esc(r.who)+' · '+r.time+'</div></div>' + act + '</div>';
-    }).join("");
-  }
-  function addLead(lead){
-    LEADS.unshift(lead);
-    state.leads += 1;
-    $("una-dot").hidden = false;
-    renderLeads(); renderUnaStats();
-  }
-  $("lead-list").addEventListener("click", function(e){
-    var c = e.target.closest("[data-lead]");
-    if(c){ var r = LEADS[+c.dataset.lead]; r.status = r.status==="new" ? "prog" : "ok"; r.fresh=false; renderLeads(); toast(r.status==="ok" ? "Marked done" : "Marked as contacted"); return; }
-    var v = e.target.closest("[data-chat]");
-    if(v) openTranscript(+v.dataset.chat);
-  });
-
-  /* ---------- Una dashboard: chats ---------- */
-  function renderChats(){
-    $("chat-list").innerHTML = CHATS.map(function(c, i){
-      var last = c.msgs[c.msgs.length-1][1];
-      return '<button class="chat-row" data-i="'+i+'"><div class="avc">'+c.ini+'</div>' +
-        '<div><div class="t">'+esc(c.who)+'</div><div class="p">'+esc(last)+'</div></div>' +
-        '<div class="tm">'+c.time+(c.lead?'<span class="lead">LEAD</span>':'')+'</div></button>';
-    }).join("");
-  }
-  $("chat-list").addEventListener("click", function(e){
-    var r = e.target.closest(".chat-row"); if(r) openTranscript(+r.dataset.i);
-  });
-  function openTranscript(i){
-    var c = CHATS[i]; if(!c) return;
-    openSheet(
-      '<div class="una transcript" style="height:auto">' +
-        '<div class="una-head"><div class="una-av" style="background:var(--bg);color:var(--muted)">'+c.ini+'</div><div><div class="n">'+esc(c.who)+'</div><div class="s" style="color:var(--muted)">'+c.time+' · on your website</div></div>' +
-        '<button class="x" data-close aria-label="Close">'+X_ICON+'</button></div>' +
-        '<div class="chat">' + c.msgs.map(function(m){ return '<div class="msg '+(m[0]==="u"?"una-m":"me")+'">'+esc(m[1])+'</div>'; }).join("") + '</div>' +
-      '</div>'
-    );
-  }
-
-  /* ---------- Una dashboard: settings ---------- */
-  var SETTINGS = [
-    {t:"Local experiences", s:"Suggest and book curated experiences", on:true},
-    {t:"Rental inquiries", s:"Collect dates, guests and contact info", on:true},
-    {t:"Stay questions", s:"Check-in, parking, Wi-Fi, house rules", on:true},
-    {t:"After-hours replies", s:"Answer guests when the office is closed", on:true}
-  ];
-  function renderSettings(){
-    $("set-rows").innerHTML = SETTINGS.map(function(s,i){
-      return '<div class="set-row"><div><div class="t">'+s.t+'</div><div class="s">'+s.s+'</div></div><button class="switch" role="switch" aria-checked="'+s.on+'" aria-label="'+s.t+'" data-i="'+i+'"></button></div>';
-    }).join("");
-  }
-  $("set-rows").addEventListener("click", function(e){
-    var b = e.target.closest(".switch"); if(!b) return;
-    var s = SETTINGS[+b.dataset.i]; s.on = !s.on; renderSettings(); toast("Saved. "+s.t+(s.on?" turned on":" turned off"));
-  });
-
-  document.querySelectorAll(".seg button").forEach(function(b){
-    b.addEventListener("click", function(){
-      document.querySelectorAll(".seg button").forEach(function(o){ o.classList.toggle("on", o===b); });
-      ["leads","chats","settings"].forEach(function(p){ $("pane-"+p).hidden = b.dataset.pane!==p; });
-    });
-  });
-
-  function renderUnaStats(){
-    $("u-conv").textContent = state.conv;
-    $("u-leads").textContent = state.leads;
-  }
-
   /* ---------- monthly report ---------- */
   var MONTHS = [["Apr",6],["May",9],["Jun",13],["Jul",18],["Aug",22],["Sep",27]];
   function renderChart(){
@@ -922,126 +787,22 @@
     }).join("");
   }
 
-  /* ---------- Una ---------- */
-  var chatLog = [];
-  var BASE_REPLIES = [
-    {t:"Something fun on the water", k:"water"},
-    {t:"Book a private chef", k:"chef"},
-    {t:"Getting here from the airport", k:"airport"},
-    {t:"Is the house free at Thanksgiving?", k:"stay"}
-  ];
-  var live = {msgs:[]};
-  function openUna(){
-    openSheet(
-      '<div class="una">' +
-        '<div class="una-head"><div class="una-av">U</div><div><div class="n">Una</div><div class="s"><i></i>Your digital concierge</div></div>' +
-        '<button class="x" data-close aria-label="Close">'+X_ICON+'</button></div>' +
-        '<div class="chat" id="chat"></div>' +
-        '<div class="replies" id="replies"></div>' +
-      '</div>'
-    );
-    $("chat").innerHTML = "";
-    if(!chatLog.length){
-      state.conv += 1; renderUnaStats();
-      una("Hi, I'm Una, the concierge for your stay at Oceanview House. What sounds good for your trip?", BASE_REPLIES);
-    } else {
-      chatLog.forEach(function(n){ $("chat").appendChild(n.cloneNode(true)); });
-      setReplies(BASE_REPLIES);
-      scrollChat();
-    }
-  }
-  $("una-launch").addEventListener("click", openUna);
-
-  function scrollChat(){ var c=$("chat"); if(c) c.scrollTop = c.scrollHeight; }
-  function add(node){
-    chatLog.push(node.cloneNode(true));
-    if(node.classList.contains("msg")) live.msgs.push([node.classList.contains("me")?"g":"u", node.textContent]);
-    $("chat").appendChild(node); scrollChat();
-  }
-  function logLead(lead){
-    if(live.idx === undefined){
-      CHATS.unshift({who:"Guest at Oceanview House", ini:"OH", time:"Just now", lead:true, msgs:live.msgs});
-      live.idx = 0;
-      LEADS.forEach(function(l){ if(l.chat !== undefined) l.chat += 1; });
-    }
-    lead.chat = 0;
-    CHATS[0].lead = true;
-    addLead(lead); renderChats();
-  }
-  function stayCard(){
-    var d = document.createElement("div"); d.className="sent-card";
-    d.innerHTML = '<div class="ok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#11834F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><div><div class="t">Inquiry sent to reservations</div><div class="s">Oceanview House \u00b7 Nov 24 to 29 \u00b7 6 guests</div></div>';
-    return d;
-  }
-  function bubble(cls, text){ var d=document.createElement("div"); d.className="msg "+cls; d.textContent=text; return d; }
-  function setReplies(list){
-    var r = $("replies"); if(!r) return;
-    r.innerHTML = (list||[]).map(function(o,i){ return '<button class="reply" data-i="'+i+'">'+esc(o.t)+'</button>'; }).join("");
-    r._list = list || [];
-  }
-  function una(text, replies, extra){
-    setReplies([]);
-    var t = document.createElement("div"); t.className="typing"; t.innerHTML="<i></i><i></i><i></i>";
-    $("chat").appendChild(t); scrollChat();
-    setTimeout(function(){
-      if(!$("chat")) return;
-      t.remove();
-      add(bubble("una-m", text));
-      if(extra) add(extra());
-      setReplies(replies);
-    }, 750);
-  }
-  function minis(ids){
-    return function(){
-      var row = document.createElement("div"); row.className="mini-row";
-      row.innerHTML = ids.filter(function(id){ return byId(id).live; }).map(function(id){
-        var x = byId(id);
-        return '<button class="mini" data-open="'+id+'"><img src="'+IMG[id]+'" alt=""><div class="t">'+esc(x.title)+'</div><div class="p">'+(x.flow==="book"?'':'From ')+money(x.price)+' / '+x.unit+'</div></button>';
-      }).join("");
-      return row;
-    };
-  }
-  function sentCard(){
-    var d = document.createElement("div"); d.className="sent-card";
-    d.innerHTML = '<div class="ok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#11834F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div><div><div class="t">Request sent to the local team</div><div class="s">Private Chef Dinner · Thu Oct 1 · 4 guests</div></div>';
-    return d;
-  }
-
-  $("sheet").addEventListener("click", function(e){
-    var m = e.target.closest("[data-open]");
-    if(m){ openDetail(m.dataset.open); return; }
-    var r = e.target.closest(".reply"); if(!r) return;
-    var opt = $("replies")._list[+r.dataset.i];
-    add(bubble("me", opt.t));
-    flow(opt.k);
-  });
-
-  function flow(k){
-    var again = BASE_REPLIES;
-    if(k==="water"){
-      una("Great choice. These are guest favorites a few minutes from your home. Tap one to see times and book.", again, minis(["sail","kayak","sup"]));
-    } else if(k==="chef"){
-      una("Lovely idea. How many guests, and which night would you like the chef?", [{t:"4 of us, Thursday night",k:"chef2"},{t:"8 of us, Saturday",k:"chef2b"}]);
-    } else if(k==="chef2" || k==="chef2b"){
-      una("Perfect. Any allergies or dietary preferences I should pass to the chef?", [{t:"One pescatarian",k:"chef3"},{t:"No restrictions",k:"chef3"}]);
-    } else if(k==="chef3"){
-      una("All set. I've sent your request to the local team with every detail. They'll confirm the menu and arrival time with you directly.", again, sentCard);
-      setTimeout(function(){ logLead({xp:"feast", detail:"Thu Oct 1 · 4 guests · 1 pescatarian", who:"Guest at Oceanview House", time:"Just now", status:"new", fresh:true}); toast("New lead in the Una dashboard"); }, 900);
-    } else if(k==="stay"){
-      una("Let me check with the reservations team. Which dates, and how many guests?", [{t:"Nov 24 to 29, 6 of us",k:"stay2"}]);
-    } else if(k==="stay2"){
-      una("Thanks! What's the best email for the team to send availability and a rate?", [{t:"Send it to my email on file",k:"stay3"}]);
-    } else if(k==="stay3"){
-      una("Done. The reservations team has your request and will reply within the hour.", again, stayCard);
-      setTimeout(function(){ logLead({title:"Thanksgiving week stay", detail:"Oceanview House \u00b7 Nov 24 to 29 \u00b7 6 guests", who:"Current guest \u00b7 repeat stay", time:"Just now", status:"new", fresh:true}); toast("New rental inquiry in the Una dashboard"); }, 900);
-    } else if(k==="airport"){
-      una("I can arrange a driver to meet you at arrivals and bring you straight to the house. Want me to set it up?", again, minis(["transfer","grocery"]));
-    }
-  }
-
   /* ---------- init ---------- */
-  renderChips(); renderGrid(); renderReport(); renderLeads(); renderChats(); renderSettings(); renderUnaStats();
+  renderChips(); renderGrid(); renderReport();
 })();
 </script>
 
+<!-- Una by Polydom, official widget (On The Coast agent) -->
+<script>
+window.chatWidgetConfig = {
+        staticUrl: 'https://una-widget.polydom.ai/latest',
+        agentId:  '6a7f727826166b5f7b18109a',
+    };
+    let s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = window.chatWidgetConfig.staticUrl + '/js/widget_hotel.js?' + new Date().getTime();
+    let x = document.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+</script>
 </body></html>
