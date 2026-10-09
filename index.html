@@ -54,12 +54,12 @@
   .live-pill{
     display:inline-flex;align-items:center;gap:6px;
     font-family:var(--head);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
-    color:var(--orange);background:var(--orange-50);padding:5px 10px;border-radius:100px;
+    color:var(--orange);background:var(--orange-50);padding:5px 10px;border-radius:100px;white-space:nowrap;flex-shrink:0;
   }
   .live-pill i{width:7px;height:7px;border-radius:50%;background:var(--orange);display:block;animation:pulse 1.8s ease-in-out infinite;}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
-  .modes{display:grid;grid-template-columns:repeat(3,1fr);margin-top:10px;}
+  .modes{display:grid;grid-template-columns:repeat(4,auto);justify-content:space-between;margin-top:10px;}
   .mode{
     background:none;border:none;cursor:pointer;
     padding:10px 4px 11px;
@@ -526,6 +526,40 @@
   .pd-m.u{background:#F0F0F2;color:#27272A;align-self:flex-start;}
   .pd-m.g{background:#18181B;color:#fff;align-self:flex-end;}
 
+  /* ===== How it works ===== */
+  .hiw-title{font-size:24px;font-weight:700;margin-top:6px;color:var(--ink);}
+  .hiw-sub{font-size:15.5px;color:var(--muted);margin:6px 0 16px;}
+  .steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;}
+  .steps li{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;border:1px solid var(--line);border-radius:14px;padding:12px;background:var(--white);}
+  .steps .n{width:40px;height:40px;border-radius:50%;border:2.5px solid var(--orange);color:var(--orange);display:flex;align-items:center;justify-content:center;font-family:var(--head);font-weight:700;font-size:14px;}
+  .steps b{font-family:var(--head);font-size:16px;color:var(--ink);}
+  .steps p{margin:2px 0 0;font-size:14.5px;color:var(--muted);}
+  .money{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px;}
+  .m-card{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--white);}
+  .m-card p{margin:6px 0 0;font-size:14.5px;color:var(--muted);}
+  .m-card .big{font-family:var(--head);font-weight:700;font-size:34px;line-height:1.1;margin-top:6px;color:var(--ink);}
+  .m-card .m-h{font-family:var(--head);font-weight:700;font-size:17px;color:var(--ink);}
+  .m-card.navy{background:#16297A;border-color:#16297A;}
+  .m-card.navy .big,.m-card.navy .m-h{color:#fff;}
+  .m-card.navy p{color:rgba(255,255,255,.82);}
+  .m-card.orange{background:var(--orange);border-color:var(--orange);margin-top:12px;}
+  .m-card.orange .m-h,.m-card.orange p{color:#fff;}
+  .m-card.orange .big-h{font-size:21px;line-height:1.2;margin-top:4px;}
+  .example{margin-top:12px;border:1px solid var(--line);border-radius:16px;padding:14px;background:var(--white);}
+  .ex-h{font-family:var(--head);font-weight:600;font-size:14.5px;margin-bottom:10px;}
+  .bar{display:flex;height:30px;border-radius:8px;overflow:hidden;font-family:var(--head);font-size:12px;font-weight:600;color:#fff;}
+  .bar span{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;}
+  .b-op{background:#9AA6C4;}
+  .b-ex{background:var(--blue);}
+  .b-pm{background:var(--orange);}
+  .legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;font-size:13.5px;color:var(--muted);}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;}
+  .ex-note{margin:8px 0 0;font-size:13.5px;color:var(--muted);}
+  .perks{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;}
+  .perks div{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--white);}
+  .perks b{display:block;font-family:var(--head);font-size:13.5px;color:var(--ink);}
+  .perks span{font-size:13px;color:var(--muted);}
+
   /* toast */
   .toast{
     position:fixed;left:50%;top:calc(14px + env(safe-area-inset-top,0px));z-index:60;
@@ -550,8 +584,9 @@
     </div>
     <nav class="modes" role="tablist">
       <button class="mode on" data-view="guest" role="tab">Guest site</button>
-      <button class="mode" data-view="report" role="tab">Monthly report</button>
+      <button class="mode" data-view="report" role="tab">Report</button>
       <button class="mode" data-view="una" role="tab">Una dashboard</button>
+      <button class="mode" data-view="how" role="tab">How it works</button>
     </nav>
   </header>
 
@@ -708,6 +743,67 @@
       </div>
     </div>
     <p class="note">Layout mirrors the live Una dashboard. Sample data for demonstration.</p>
+  </section>
+
+  <!-- ================= HOW IT WORKS (partner info) ================= -->
+  <section class="view" id="view-how">
+    <div class="context">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+      For property managers: how the partnership works and what you earn.
+    </div>
+    <div class="pad">
+      <div class="eyebrow" style="color:var(--orange)">Explorabout &times; Una</div>
+      <h2 class="hiw-title">How Explorabout works</h2>
+      <p class="hiw-sub">Explorabout connects your guests to hyperlocal activities through a simple four-step process on your own website.</p>
+
+      <ol class="steps">
+        <li><span class="n">01</span><div><b>Curate</b><p>We hand-pick about 20 hyperlocal tours, activities and experiences near each property.</p></div></li>
+        <li><span class="n">02</span><div><b>Embed</b><p>The collection lives directly on your own branded website.</p></div></li>
+        <li><span class="n">03</span><div><b>Engage</b><p>Pre-arrival guest messages and branded QR magnets placed in the home drive guests back to it.</p></div></li>
+        <li><span class="n">04</span><div><b>Book</b><p>Guests book on your site. Local operators reach travelers staying nearby.</p></div></li>
+      </ol>
+
+      <div class="money">
+        <div class="m-card">
+          <div class="eyebrow" style="color:var(--orange)">Monetization model</div>
+          <div class="big">20%</div>
+          <div class="m-h">Explorabout commission</div>
+          <p>Explorabout retains a 20% commission on each booking. Local activity operators keep the remaining 80%.</p>
+        </div>
+        <div class="m-card navy">
+          <div class="eyebrow" style="color:#FFB27A">Partner revenue</div>
+          <div class="big">25%</div>
+          <div class="m-h">Property manager share</div>
+          <p>25% of Explorabout's share goes directly to you every time a guest books an experience.</p>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="ex-h">Example: one $100 booking</div>
+        <div class="bar"><span class="b-op" style="flex:80">Operator $80</span><span class="b-ex" style="flex:15">$15</span><span class="b-pm" style="flex:5"></span></div>
+        <div class="legend">
+          <span><i class="b-op"></i>Local operator $80</span>
+          <span><i class="b-ex"></i>Explorabout $15</span>
+          <span><i class="b-pm"></i>You $5</span>
+        </div>
+        <p class="ex-note">Your $5 is 25% of Explorabout's $20 commission.</p>
+      </div>
+
+      <div class="perks">
+        <div><b>No cost to join</b><span>For you or the operators</span></div>
+        <div><b>No work for your team</b><span>We curate, set up and maintain it</span></div>
+        <div><b>Monthly report</b><span>Views, clicks and bookings</span></div>
+        <div><b>Una by Polydom</b><span>Voice and chat concierge, 24/7</span></div>
+      </div>
+
+      <div class="m-card orange">
+        <div class="eyebrow" style="color:#fff;opacity:.85">Community impact</div>
+        <div class="m-h big-h">Everyone gets to know each other</div>
+        <p>Operators and property managers build real local relationships, not just transactional stays.</p>
+        <p><b>Delighted guests become loyal advocates driving repeat visits.</b></p>
+      </div>
+    </div>
+    <p class="note">Questions? hello@explorabout.com</p>
   </section>
 
 </div>
