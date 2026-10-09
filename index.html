@@ -560,6 +560,13 @@
   .perks b{display:block;font-family:var(--head);font-size:13.5px;color:var(--ink);}
   .perks span{font-size:13px;color:var(--muted);}
 
+  .contact{margin:14px 16px 0;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--white);}
+  .c-h{font-family:var(--head);font-weight:700;font-size:16px;margin-bottom:8px;color:var(--ink);}
+  .c-row{display:flex;flex-direction:column;gap:2px;padding:6px 0;border-top:1px solid var(--line);}
+  .c-row:first-of-type{border-top:none;}
+  .c-k{font-family:var(--head);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+  .c-v{font-size:14.5px;line-height:1.5;overflow-wrap:anywhere;}
+  .c-v a{color:var(--blue);text-decoration:none;font-weight:700;}
   /* toast */
   .toast{
     position:fixed;left:50%;top:calc(14px + env(safe-area-inset-top,0px));z-index:60;
@@ -803,7 +810,11 @@
         <p><b>Delighted guests become loyal advocates driving repeat visits.</b></p>
       </div>
     </div>
-    <p class="note">Questions? hello@explorabout.com</p>
+    <div class="contact">
+      <div class="c-h">Questions?</div>
+      <div class="c-row"><span class="c-k">Contact</span><span class="c-v"><a href="mailto:hello@explorabout.com">hello@explorabout.com</a> / <a href="mailto:kaylee@explorabout.com">kaylee@explorabout.com</a> / <a href="mailto:karen@explorabout.com">karen@explorabout.com</a> / <a href="mailto:go@explorabout.com">go@explorabout.com</a></span></div>
+      <div class="c-row"><span class="c-k">Call or text</span><span class="c-v"><a href="tel:+12523975672">252-EXPLORA (252-397-5672)</a></span></div>
+    </div>
   </section>
 
 </div>
